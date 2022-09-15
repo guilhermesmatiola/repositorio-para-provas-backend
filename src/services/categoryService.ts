@@ -1,6 +1,6 @@
 import * as categoryRepository from "../repositories/categoryRepository.js";
 
-export async function findByName(name: string) {
+export async function findByNameCategory(name: string) {
 	const category = await categoryRepository.findByName(name);
 
 	if (!category)

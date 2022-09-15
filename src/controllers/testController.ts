@@ -8,3 +8,9 @@ export async function newTest(req: Request, res: Response) {
 
 	res.sendStatus(201);
 }
+
+export async function getAllTestsByDiscipline(req: Request, res: Response) {
+    const assignmentsList =
+      await testService.findTestsByDiscipline();
+    res.status(200).send(assignmentsList);
+}

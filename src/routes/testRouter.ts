@@ -7,5 +7,6 @@ import * as testController from "../controllers/testController.js";
 const testRoute = Router();
 
 testRoute.post("/test", validateSchema(testSchema), verifyToken, testController.newTest);
+testRoute.get("/test/disciplines", testController.getAllTestsByDiscipline);
 
 export default testRoute;

@@ -17,47 +17,53 @@ model users{
   name String? @db.VarChar(255)
 }
 
-model Categories {
-  id    Int     @id @default(autoincrement())
-  name  String  @db.VarChar(255)
-  tests Tests[]
+model Test {
+  id      Int @id @default(autoincrement())
+  name    String
+  pdfUrl  String
+  categoryId  Int 
+  teacherDisciplineId  Int
+  category Category @relation(fields: [categoryId], references: [id])
+  teacherDiscipline teachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
+  @@map("tests")
 }
 
-model Terms {
-  id          Int           @id @default(autoincrement())
-  number      Int
-  disciplines Disciplines[]
+model Category {
+  id      Int @id @default(autoincrement())
+  name    String @unique
+  rest Test[]
+  @@map("categories")
 }
 
-model Disciplines {
-  id                  Int                   @id @default(autoincrement())
-  name                String                @db.VarChar(255)
-  term                Terms                 @relation(fields: [termId], references: [id])
-  termId              Int
-  teachersdisciplines TeachersDisciplines[]
+model Teacher {
+  id      Int @id @default(autoincrement())
+  name    String @unique
+  teachersDisciplines teachersDisciplines[]
+  @@map("teachers")
 }
 
-model Teachers {
-  id                  Int                   @id @default(autoincrement())
-  name                String                @db.VarChar(255)
-  teachersdisciplines TeachersDisciplines[]
+model Term {
+  id      Int @id @default(autoincrement())
+  number    Int @unique
+  discipline    Discipline[]
+  @@map("terms")
 }
 
-model TeachersDisciplines {
-  id           Int         @id @default(autoincrement())
-  teacher      Teachers    @relation(fields: [teacherId], references: [id])
+model Discipline {
+  id      Int @id @default(autoincrement())
+  name    String @unique
+  termId  Int
+  term Term @relation(fields: [termId], references: [id])
+  teachersDisciplines teachersDisciplines[]
+  @@map("disciplines")
+}
+
+model teachersDisciplines {
+  id      Int @id @default(autoincrement())
   teacherId    Int
-  discipline   Disciplines @relation(fields: [disciplineId], references: [id])
   disciplineId Int
-  teste        Tests[]
-}
-
-model Tests {
-  id                  Int                 @id @default(autoincrement())
-  name                String              @db.VarChar(255)
-  pdfUrl              String              @db.VarChar(255)
-  category            Categories          @relation(fields: [categoryId], references: [id])
-  categoryId          Int
-  teacherDiscipline   TeachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
-  teacherDisciplineId Int
+  teacher    Teacher @relation(fields: [teacherId], references: [id])
+  discipline Discipline @relation(fields: [disciplineId], references: [id])
+  
+  test Test[]
 }

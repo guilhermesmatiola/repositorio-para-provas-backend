@@ -12,14 +12,14 @@ beforeEach(async () => {
 async function login() {
 
     const body = {
-        email: "testcreate@testemail.com",
+        email: "testcreatepost@testemail.com",
         password: "testcreate@testemail.com",
         confirmPassword: "testcreate@testemail.com",
     };
     await supertest(app).post("/signup").send(body);
   
     const user = {
-        email: "testcreate@testemail.com",
+        email: "testcreatepost@testemail.com",
         password: "testcreate@testemail.com",
     };
     const userLogin = await supertest(app).post("/signin").send(user);

@@ -33,7 +33,7 @@ describe("Testing route GET /discipline", () => {
         const status = result.status;
 
         expect(status).toEqual(200)
-        expect(result.body).toBeInstanceOf(Object);
+        expect(result.body).toBeInstanceOf(Array);
     });
 
     it("return 401 - wrong token", async () => {

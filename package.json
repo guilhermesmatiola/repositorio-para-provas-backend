@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npx prisma migrate deploy",
     "test": "jest --no-cache",
-    "start": "node .src/server.js",
+    "start": "node dist/server.js",
     "dev": "nodemon ./src/server.ts"
   },
   "repository": {

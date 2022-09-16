@@ -3,8 +3,9 @@ import * as teacherDisciplineService from "../services/correTeacherDiscipline.js
 import * as teacherService from "../services/teacherService.js";
 import * as disciplineService from "../services/disciplinesService.js";
 import * as categoryService from "../services/categoryService.js";
-import * as termsRepository from "../repositories/termsRepository.js"
-import * as disciplineRepository from "../repositories/disciplineRepository.js"
+import * as termsRepository from "../repositories/termsRepository.js";
+import * as disciplineRepository from "../repositories/disciplineRepository.js";
+import * as teacherDisciplineRepository from "../repositories/teacherDisciplineRepository.js"
 
 export async function newTest(data: {
 	name: string;
@@ -31,8 +32,14 @@ export async function newTest(data: {
 }
 
 export async function findTestsByDiscipline() {
-	const assignmentsData =
-	  await disciplineRepository.getTestsByDiscipline();
+	const data = await disciplineRepository.getTestsByDiscipline();
   
-	return assignmentsData;
-  }
+	return data;
+}
+
+
+export async function findTestsByTeacher() {
+	const data = await teacherDisciplineRepository.getTestsByInstructors();
+  
+	return data;
+}

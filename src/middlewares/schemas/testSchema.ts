@@ -6,11 +6,6 @@ const testSchema = joi.object({
 	category: joi.string().required(),
 	discipline: joi.string().required(),
 	teacher: joi.string().required()
-
-	// name: joi.string().required(),
-	// pdfUrl: joi.string().uri().required(),
-	// categoryId: joi.number().required(),
-	// teacherDisciplineId: joi.number().required(),
 })
 
 export default testSchema;

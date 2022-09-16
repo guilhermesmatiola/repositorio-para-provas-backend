@@ -1,11 +1,11 @@
-import * as testRepository from "../repositories/testRepository.js";
-import * as teacherDisciplineService from "../services/correTeacherDiscipline.js";
-import * as teacherService from "../services/teacherService.js";
-import * as disciplineService from "../services/disciplinesService.js";
-import * as categoryService from "../services/categoryService.js";
-import * as termsRepository from "../repositories/termsRepository.js";
-import * as disciplineRepository from "../repositories/disciplineRepository.js";
-import * as teacherDisciplineRepository from "../repositories/teacherDisciplineRepository.js"
+import * as testRepository from "../repositories/testRepository";
+import * as teacherDisciplineService from "../services/correTeacherDiscipline";
+import * as teacherService from "../services/teacherService";
+import * as disciplineService from "../services/disciplinesService";
+import * as categoryService from "../services/categoryService";
+import * as termsRepository from "../repositories/termsRepository";
+import * as disciplineRepository from "../repositories/disciplineRepository";
+import * as teacherDisciplineRepository from "../repositories/teacherDisciplineRepository"
 
 export async function newTest(data: {
 	name: string;

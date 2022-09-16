@@ -1,5 +1,5 @@
-import prisma from "../databases/database.js";
-import * as categoryRepository from "../repositories/categoryRepository.js";
+import prisma from "../databases/database";
+import * as categoryRepository from "../repositories/categoryRepository";
 
 export async function findByName(name:string) {
     return await prisma.category.findFirst({where: {name}})

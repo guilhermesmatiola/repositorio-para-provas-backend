@@ -2,10 +2,9 @@
   "name": "projeto20-repoprovas",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest -i",
     "dev": "nodemon src/server.ts",
     "start": "ts-node src/server.ts"
   },

@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { validateSchema } from "../middlewares/validators/schemasValidator.js";
-import verifyToken from "../middlewares/validators/verifyToken.js";
-import testSchema from "../middlewares/schemas/testSchema.js"
-import * as testController from "../controllers/testController.js";
+import { validateSchema } from "../middlewares/validators/schemasValidator";
+import verifyToken from "../middlewares/validators/verifyToken";
+import testSchema from "../middlewares/schemas/testSchema"
+import * as testController from "../controllers/testController";
 
 const testRoute = Router();
 

@@ -1,4 +1,4 @@
-import prisma from "../databases/database.js";
+import prisma from "../databases/database";
 
 export async function findByDiscipline() {
     return await prisma.term.findMany({

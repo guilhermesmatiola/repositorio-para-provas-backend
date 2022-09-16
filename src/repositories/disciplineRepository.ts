@@ -1,4 +1,4 @@
-import prisma from "../databases/database.js";
+import prisma from "../databases/database";
 
 export async function findByName(name:string) {
   return await prisma.discipline.findFirst({where: {name}})
